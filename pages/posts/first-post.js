@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 // import Script from "next/script";
 import Layout from "../../components/Layout";
+import Meta from "../../components/Meta";
 
 export default function FirstPost() {
   useEffect(() => {
@@ -12,9 +13,7 @@ export default function FirstPost() {
   }, []);
   return (
     <>
-      <Head>
-        <title>First Post</title>
-        <meta name="description" content="Free Web tutorials" />
+      <Meta title="First Post" description="Free Web tutorials" />
         {/* <Script
           src="https://connect.facebook.net/en_US/sdk.js"
           strategy="lazyOnload"
@@ -22,7 +21,6 @@ export default function FirstPost() {
             console.log(`script loaded correctly, window.FB has been populated`)
           }
         /> */}
-      </Head>
       <div>
         <Link href="/">Go to Home</Link>
         <Link href="/posts/ssg-ssr">Go to ssg</Link>

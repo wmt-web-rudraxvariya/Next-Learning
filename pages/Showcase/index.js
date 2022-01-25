@@ -1,22 +1,22 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
+import Meta from "../../components/Meta";
 
 const ShowCase = ({ data }) => {
   const router = useRouter();
   return (
     <>
-      <Head>
-        <title>USER DATA</title>
-        <meta name="description" content="personal Info of users" />
-      </Head>
+      <Meta title="USER DATA" description="personal Info of users" />
       <div className="mt-5 flex justify-center flex-wrap">
         {data.map((item, i) => {
           return (
             <div
               key={i}
               className="w-1/3 cursor-pointer h-40 border px-5 py-10 m-5 relative"
-              onClick={() => {router.push(`Showcase/${item.id}`)}}
+              onClick={() => {
+                router.push(`Showcase/${item.id}`);
+              }}
             >
               <div className="absolute -top-3 -right-3 px-2 bg-blue-800 text-white rounded-full">
                 {item.id}

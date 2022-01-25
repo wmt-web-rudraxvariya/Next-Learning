@@ -4,6 +4,7 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
+import Meta from "../components/Meta";
 
 export async function getStaticProps() {
   console.log(getSortedPostsData());
@@ -15,14 +16,11 @@ export async function getStaticProps() {
   };
 }
 export default function Home({ allPostsData }) {
-  console.log("asdas", process.env.NEXT_PUBLIC_PWD);
   return (
     <>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
+      <Meta />
       <div className="flex justify-between ">
-        <div className="overflow-scroll" style={{maxHeight:"80vh"}}>
+        <div className="overflow-scroll" style={{ maxHeight: "80vh" }}>
           <ul>
             <li className="mt-10 w-56">Pages</li>
             <li className="mt-10 w-56">Pages</li>

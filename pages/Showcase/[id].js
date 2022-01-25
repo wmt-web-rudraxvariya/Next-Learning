@@ -1,14 +1,18 @@
 import React from "react";
+import Meta from "../../components/Meta";
 
 const UserDetail = ({ articals }) => {
   return (
-    <div className="flex flex-col text-center mt-10">
-      <h1 className="text-4xl ">{articals.title}</h1>
-      <a className="text-blue-600 mt-5" href={`mailto:${articals.email}`}>
-        {articals.body}
-      </a>
-      <text className="text-gray-400 mt-5">{articals.id}</text>
-    </div>
+    <>
+      <Meta title={articals.title} description={articals.body} />
+      <div className="flex flex-col text-center mt-10">
+        <h1 className="text-4xl ">{articals.title}</h1>
+        <a className="text-blue-600 mt-5" href={`mailto:${articals.email}`}>
+          {articals.body}
+        </a>
+        <text className="text-gray-400 mt-5">{articals.id}</text>
+      </div>
+    </>
   );
 };
 export const getStaticProps = async (context) => {
