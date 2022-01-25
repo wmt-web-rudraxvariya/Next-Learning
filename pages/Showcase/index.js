@@ -4,7 +4,6 @@ import React from "react";
 
 const ShowCase = ({ data }) => {
   const router = useRouter();
-  console.log("data", data);
   return (
     <>
       <Head>
