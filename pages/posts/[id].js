@@ -3,6 +3,7 @@ import { getAllPostIds, getPostData } from "../../lib/posts";
 import Date from "../../components/date";
 import Head from "next/head";
 import utilStyles from "../../styles/utils.module.css";
+import Meta from "../../components/Meta";
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id);
@@ -16,10 +17,7 @@ export async function getStaticProps({ params }) {
 export default function Post({ postData }) {
   return (
   <>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
-
+      <Meta title={postData.title} />
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>

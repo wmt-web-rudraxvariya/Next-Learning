@@ -40,7 +40,7 @@ const Navbar = () => {
           <Link href="/Blogs">Blogs</Link>
           <Link href="/Analytics">Analytics</Link>
           <Link href="/Examples">Examples</Link>
-          <Link href="/Enterprise">Enterprise</Link>
+          <Link href="/contact">Contact</Link>
           <Link href="/Learn">
             <a className="bg-blue-500 text-white px-4 py-2 rounded-md">Learn</a>
           </Link>
