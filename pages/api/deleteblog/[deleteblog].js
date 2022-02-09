@@ -5,9 +5,7 @@ export default async function handler(req, res) {
     const id = req.query;
     console.log("req.headerasdasdasd", id.deleteblog);
     const data = req.body;
-    const client = await MongoClient.connect(
-      "mongodb+srv://blogTestUser:TSCZ36Eilkt9janp@cluster0.ylkwz.mongodb.net/blogsData?retryWrites=true&w=majority"
-    );
+    const client = await MongoClient.connect(process.env.NEXT_PUBLIC_PWD);
     const db = client.db();
     const blogsData = db.collection("blogsData");
     const response = await blogsData.deleteOne({

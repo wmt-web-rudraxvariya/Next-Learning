@@ -46,9 +46,7 @@ const Blogs = ({ blog }) => {
   );
 };
 export async function getStaticProps() {
-  const client = await MongoClient.connect(
-    "mongodb+srv://blogTestUser:TSCZ36Eilkt9janp@cluster0.ylkwz.mongodb.net/blogsData?retryWrites=true&w=majority"
-  );
+  const client = await MongoClient.connect(process.env.NEXT_PUBLIC_PWD);
   const db = client.db();
   const blogsData = db.collection("blogsData");
   const TotalBlogs = await blogsData.find().toArray();
