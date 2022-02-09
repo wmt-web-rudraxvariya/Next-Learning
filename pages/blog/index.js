@@ -45,7 +45,7 @@ const Blogs = ({ blog }) => {
     </>
   );
 };
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const client = await MongoClient.connect(process.env.NEXT_MONGO_CONNECT);
   const db = client.db();
   const blogsData = db.collection("blogsData");
@@ -61,7 +61,6 @@ export async function getStaticProps() {
         id: blog._id.toString(),
       })),
     },
-    revalidate: 1,
   };
 }
 export default Blogs;
