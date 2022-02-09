@@ -33,7 +33,7 @@ const AddBlog = () => {
     <>
       <div className="border-2 border-gray-300 shadow-2xl drop-shadow-2xl rounded-lg w-1/2  p-5 m-5 ml-auto mr-auto ">
         <h1 className="my-5 font-semibold text-xl text-gray-600">
-          Add blog details
+          Add blogs details
         </h1>
         <form
           onSubmit={(e) => {
