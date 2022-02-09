@@ -12,5 +12,11 @@ export default async function handler(req, res) {
     client.close();
     res.status(201).json({ message: "Blog added succesfully!" });
   }
-  res.status(201).json({ message: "Blog added succesfully!" });
+  if (req.method === "GET") {
+    const client = await MongoClient.connect(process.env.NEXT_MONGO_CONNECT);
+    const db = client.db();
+    const blogsData = db.collection("blogsData");
+    const TotalBlogs = await blogsData.find().toArray();
+    res.status(200).json(TotalBlogs);
+  }
 }
