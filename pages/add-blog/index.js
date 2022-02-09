@@ -12,6 +12,7 @@ const AddBlog = () => {
       desc: e.target.desc.value,
     };
     const finalData = JSON.stringify(blogData);
+    console.log("hello");
     const res = await fetch("/api/blog", {
       body: finalData,
       headers: {

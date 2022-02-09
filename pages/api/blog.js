@@ -4,6 +4,7 @@ export default async function handler(req, res) {
   console.log("req.body", req.body);
   if (req.method === "POST") {
     const data = req.body;
+    console.log("datat", data)
     const client = await MongoClient.connect(process.env.NEXT_MONGO_CONNECT);
     const db = client.db();
     const blogsData = db.collection("blogsData");

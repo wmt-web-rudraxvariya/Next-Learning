@@ -1,19 +1,22 @@
 import { MongoClient } from "mongodb";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Blogs = ({ blog }) => {
+  const router = useRouter();
   const DeleteBlog = async (id) => {
     const data = await fetch(`/api/deleteblog/${id}`, {
       method: "DELETE",
     });
     const res = await data.json();
     console.log(res.message);
+    router.reload();
   };
-  const router = useRouter();
-  if (!blog) {
-    router.push("/");
-  }
+  useEffect(() => {
+    if (blog.length == 0) {
+      router.push("/add-blog");
+    }
+  }, [blog]);
 
   return (
     <>
