@@ -46,7 +46,7 @@ const Blogs = ({ blog }) => {
   );
 };
 export async function getStaticProps() {
-  const client = await MongoClient.connect(process.env.NEXT_PUBLIC_PWD);
+  const client = await MongoClient.connect(process.env.NEXT_MONGO_CONNECT);
   const db = client.db();
   const blogsData = db.collection("blogsData");
   const TotalBlogs = await blogsData.find().toArray();
