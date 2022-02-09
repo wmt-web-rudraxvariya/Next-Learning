@@ -4,7 +4,7 @@ import utilStyles from "../styles/utils.module.css";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
-import Meta from "../components/Meta";
+import NestedLayout from '../components/nested-layout'
 
 export async function getStaticProps() {
   console.log(getSortedPostsData());
@@ -18,37 +18,15 @@ export async function getStaticProps() {
 export default function Home({ allPostsData }) {
   return (
     <>
-      <Meta />
       <div className="flex justify-between ">
-        <div className="overflow-scroll" style={{ maxHeight: "80vh" }}>
-          <ul>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-            <li className="mt-10 w-56">Pages</li>
-          </ul>
+        <div className="overflow-scroll" style={{maxHeight:"80vh"}}>
+            {[...Array(100)].map((item, i) => {
+              return (
+                <li className="mt-10 w-56" key={i}>
+                  Page {i}
+                </li>
+              );
+            })}
         </div>
         <div>
           <section className={utilStyles.headingMd}>
@@ -149,11 +127,10 @@ export default function Home({ allPostsData }) {
     </>
   );
 }
-// Home.getLayout = function getLayout(page){
-
-//   return(
-//     <Layout>
-//       <Nested
-//     </Layout>
-//   )
-// }
+Home.getLayout = function getLayout(page) {
+  return (
+    <Layout>
+      <NestedLayout>{page}</NestedLayout>
+    </Layout>
+  )
+}
