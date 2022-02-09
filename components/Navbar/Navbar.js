@@ -4,7 +4,7 @@ import React from "react";
 
 const SubHeader = () => {
   return (
-    <div className="flex items-center py-2 justify-between bg-black md:px-56 px-0">
+    <div className="flex relative items-center py-2 justify-between bg-black md:px-56 px-0">
       <div>
         <Link href="/">
           <a className="text-3xl font-semibold text-white">Vercel</a>
@@ -37,7 +37,7 @@ const Navbar = () => {
         <div className="space-x-10 text-gray-600">
           <Link href="/Showcase">Showcase</Link>
           <Link href="/Docs">Docs</Link>
-          <Link href="/Blogs">Blogs</Link>
+          <Link href="/add-blog">Add Blogs</Link>
           <Link href="/Analytics">Analytics</Link>
           <Link href="/Examples">Examples</Link>
           <Link href="/contact">Contact</Link>
